@@ -4,10 +4,17 @@ import java.time.Instant;
 
 import com.maxwell.clima.entities.Leitura;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class LeituraDTO {
 
 	private Long id;
+	
+	@NotNull(message = "Campo requerido")
 	private Double valorCelsius;
+	
+	@PastOrPresent(message = "A data não pode ser futura")
 	private Instant momento;
 	private SensorDTO sensor;
 	
